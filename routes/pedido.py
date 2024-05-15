@@ -26,8 +26,8 @@ async def post_pedido(pedido: PedidoCompleto):
     pedido_dict['cliente'] = pedido.cliente.dict()
     pedido_dict['produtos'] = [produto.dict() for produto in pedido.produtos]
     pedido_dict['_id'] = str(pedido_dict['id'])
-    response = pedido_table.put_item(Item=pedido_dict)
-    return response
+    pedido_table.put_item(Item=pedido_dict)    
+    return pedido_dict
 
 # PATCH Request Method
 @router.patch("/")
