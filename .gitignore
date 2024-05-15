@@ -3,6 +3,7 @@
 /models/__pycache__
 /config/__pycache__
 /env/
+/.env
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
