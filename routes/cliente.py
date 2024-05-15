@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from models.cliente import Cliente
 from config.database import cliente_table
-#from schema.schemas import cliente_list_serial
 
 router = APIRouter(
     prefix="/cliente",

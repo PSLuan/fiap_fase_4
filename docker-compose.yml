@@ -1,0 +1,11 @@
+services:
+  python:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: FIAP_pedido_python
+    restart: on-failure
+    env_file:
+      - .env
+    ports:
+      - 8000:8000

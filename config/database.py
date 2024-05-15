@@ -1,6 +1,10 @@
-import boto3
+import boto3, os
 
-dynamodb = boto3.resource('dynamodb', region_name='us-east-2', aws_access_key_id='AKIAU6GDWYXJRJD36CER', aws_secret_access_key='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')
+REGION_NAME=os.getenv("REGION_NAME")
+AWS_ACCESS_KEY_ID=os.getenv("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY=os.getenv("AWS_SECRET_ACCESS_KEY")
+
+dynamodb = boto3.resource('dynamodb', region_name=REGION_NAME, aws_access_key_id=AWS_ACCESS_KEY_ID, aws_secret_access_key=AWS_SECRET_ACCESS_KEY)
 
 pedido_table_name = 'pedido_collection'
 cliente_table_name = 'cliente_collection'
