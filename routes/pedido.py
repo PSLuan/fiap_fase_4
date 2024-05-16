@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from models.pedido import PedidoCompleto
 from config.database import pedido_table
 from pydantic import BaseModel
+from boto3.dynamodb.conditions import Attr
 
 router = APIRouter(
     prefix="/pedido",
@@ -17,6 +18,15 @@ class UpdateStatusRequest(BaseModel):
 async def get_pedidos():
     response = pedido_table.scan()
     pedidos = response['Items']
+    return pedidos
+
+# GET Request Method Based On Status
+@router.get("/{status}")
+async def get_pedidos(status: str):
+    response = pedido_table.scan(
+        FilterExpression=Attr('status').eq(status)
+    )
+    pedidos = response.get('Items', [])
     return pedidos
 
 # POST Request Method

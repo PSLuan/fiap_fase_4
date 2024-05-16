@@ -1,6 +1,6 @@
 import pytest, sys
 from fastapi.testclient import TestClient
-from pytest_bdd import scenarios, given, when, then, parsers
+from pytest_bdd import scenarios, given, when, then
 sys.path.append("..")
 from routes.pedido import router
 from config.database import pedido_table
